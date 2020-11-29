@@ -417,5 +417,5 @@ $("#hateit").on("click", function () {
     $('#artist1').empty();
     $('#wiki1').empty();
     $("#linkhere1").empty();
-    artistGetter();
+    artistGetter1();
 })

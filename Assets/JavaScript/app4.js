@@ -21,16 +21,16 @@ console.log(tags[y])
 
 
 
-function songlistgetter3(songlist) {
+function songlistgetter1(songlist) {
 
     $.ajax({
         url: "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=parse&format=json&page=" + songlist.title + "&prop=links",
         method: "GET"
     }).then(function (result) {
 
-        var podcast = result.parse.links[Math.floor((Math.random() * 80) + 1)]["*"];
+        var song = result.parse.links[Math.floor((Math.random() * 80) + 1)]["*"];
 
-        var queryURL = "https://itunes.apple.com/search?term=" + podcast + "&limit=1";
+        var queryURL = "https://itunes.apple.com/search?term=" + song + "&limit=1";
         $.ajax({
             url: queryURL,
             dataType: "jsonp",
@@ -43,15 +43,15 @@ function songlistgetter3(songlist) {
                     success: function (response) {
                         // console.log(response)
                         var image = $("<img>").attr({ src: response.results[0].artworkUrl100 })
-                        $("#buylink3").attr({ href: " https://geo.itunes.apple.com/us/album/id" + response.results[0].collectionId + "?i=" + response.results[0].trackId + "&at=1000lR4Q" })
-                        $("#amazonlink3").attr({ href: "https://www.amazon.com/gp/search?ie=UTF8&tag=locationsong1-20&linkCode=ur2&linkId=a2760e14a2d286d92bc32fdeae1f4b8d&camp=1789&creative=9325&index=digital-music&keywords=" + response.results[0].artistName + " " + response.results[0].trackName })
+                        $("#buylink1").attr({ href: " https://geo.itunes.apple.com/us/album/id" + response.results[0].collectionId + "?i=" + response.results[0].trackId + "&at=1000lR4Q" })
+                        $("#amazonlink1").attr({ href: "https://www.amazon.com/gp/search?ie=UTF8&tag=locationsong1-20&linkCode=ur2&linkId=a2760e14a2d286d92bc32fdeae1f4b8d&camp=1789&creative=9325&index=digital-music&keywords=" + response.results[0].artistName + " " + response.results[0].trackName })
                         selectedTrackname = response.results[0].trackName
                         selectedArtist = response.results[0].artistName
                         selectedTrackId = response.results[0].trackId
-                        $('#title3').html(selectedTrackname);
-                        $('#artist3').html(selectedArtist);
-                        $('#wiki3').html(selectedTrackId);
-                        $("#linkhere3").html(image);
+                        $('#title1').html(selectedTrackname);
+                        $('#artist1').html(selectedArtist);
+                        $('#wiki1').html(selectedTrackId);
+                        $("#linkhere1").html(image);
 
                         gapi.load('auth2', function () {
                         });
@@ -63,7 +63,7 @@ function songlistgetter3(songlist) {
                             "&part=snippet&q=" + searchKey + "&type=video"
 
                         console.log(queryURL);
-                        var x = document.getElementById("#title3");
+                        var x = document.getElementById("#title1");
                         console.log(x);
 
                         $.ajax({
@@ -73,7 +73,7 @@ function songlistgetter3(songlist) {
                             // console.log(response);
                             // console.log(response.items[0].id.videoId);
                             var videoID = response.items[0].id.videoId;
-                            $('#vid3').attr('src', 'https://www.youtube.com/embed/' + videoID);
+                            $('#vid1').attr('src', 'https://www.youtube.com/embed/' + videoID);
                         });
 
                     }
@@ -84,10 +84,10 @@ function songlistgetter3(songlist) {
     })
 }
 
-function artistGetter3() {
+function artistGetter1() {
 
     $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&format=json&list=categorymembers&cmtitle=Category:Audio_podcasts",
+        url: "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&format=json&list=categorymembers&cmtitle=Category:Lists_of_songs_recorded_by_American_artists",
 
         method: "GET"
     }).then(function (response) {
@@ -98,12 +98,12 @@ function artistGetter3() {
 
         for (var i = 0; i < americancat.length; i++) {
             var songlist = americancat[Math.floor((Math.random() * 4))]
-            songlistgetter3(songlist)
+            songlistgetter1(songlist)
         }
     })
 };
 
-function youtubeVid3() {
+function youtubeVid1() {
     gapi.load('auth2', function () {
     });
 
@@ -114,7 +114,7 @@ function youtubeVid3() {
         "&part=snippet&q=" + searchKey + "&type=video"
 
     console.log(queryURL);
-    var x = document.getElementById("#title3");
+    var x = document.getElementById("#title1");
     console.log(x);
 
     $.ajax({
@@ -124,12 +124,12 @@ function youtubeVid3() {
         // console.log(response);
         // console.log(response.items[0].id.videoId);
         var videoID = response.items[0].id.videoId;
-        $('#vid3').attr('src', 'https://www.youtube.com/embed/' + videoID);
+        $('#vid1').attr('src', 'https://www.youtube.com/embed/' + videoID);
     });
 
 }
 
-$("#submit3").on("click", function (event) {
+$("#submit1").on("click", function (event) {
 
     event.preventDefault();
     street = $("#street").val().trim().toLowerCase();
@@ -163,21 +163,21 @@ $("#submit3").on("click", function (event) {
                     selectedTrackname = response.results[0].trackName
                     selectedArtist = response.results[0].artistName
                     selectedTrackId = response.results[0].trackId
-                    $('#title3').html(selectedTrackname);
-                    $('#artist3').html(selectedArtist);
-                    $('#wiki3').html(selectedTrackId);
-                    $("#linkhere3").html(image);
+                    $('#title1').html(selectedTrackname);
+                    $('#artist1').html(selectedArtist);
+                    $('#wiki1').html(selectedTrackId);
+                    $("#linkhere1").html(image);
 
-                    $("#buylink3").attr({ href: " https://geo.itunes.apple.com/us/album/id" + response.results[0].collectionId + "?i=" + response.results[0].trackId + "&at=1000lR4Q" })
-                    $("#amazonlink3").attr({ href: "https://www.amazon.com/gp/search?ie=UTF8&tag=locationsong1-20&linkCode=ur2&linkId=a2760e14a2d286d92bc32fdeae1f4b8d&camp=1789&creative=9325&index=digital-music&keywords=" + response.results[0].artistName + " " + response.results[0].trackName })
+                    $("#buylink1").attr({ href: " https://geo.itunes.apple.com/us/album/id" + response.results[0].collectionId + "?i=" + response.results[0].trackId + "&at=1000lR4Q" })
+                    $("#amazonlink1").attr({ href: "https://www.amazon.com/gp/search?ie=UTF8&tag=locationsong1-20&linkCode=ur2&linkId=a2760e14a2d286d92bc32fdeae1f4b8d&camp=1789&creative=9325&index=digital-music&keywords=" + response.results[0].artistName + " " + response.results[0].trackName })
                     mappingApi();
-                    youtubeVid3();
+                    youtubeVid1();
                 }
             });
         }
         else {
             console.log("else executed");
-            artistGetter3();
+            artistGetter1();
             mappingApi();
 
         }
@@ -197,9 +197,9 @@ $("#submit3").on("click", function (event) {
     
         //$("#displayDiv").html(tdstreet, tdcity, tdstate)
     
-        $('#title3').html(tdtitle);
-        $('#artist3').html(tdartist);
-        $('#wiki3').html(tdtrackid);
+        $('#title1').html(tdtitle);
+        $('#artist1').html(tdartist);
+        $('#wiki1').html(tdtrackid);
     
     })
     // Get the modal
@@ -349,9 +349,9 @@ $("#current").on("click", function () {
      }
    }
 currentor()
-artistGetter3()
-songlistgetter3()
-youtubeVid3()
+artistGetter1()
+songlistgetter1()
+youtubeVid1()
 
 
 })
@@ -413,9 +413,9 @@ $("#loveit").on("click", function (event) {
 
 
 $("#hateit").on("click", function () {
-    $('#title3').empty();
-    $('#artist3').empty();
-    $('#wiki3').empty();
-    $("#linkhere3").empty();
-    artistGetter3();
+    $('#title1').empty();
+    $('#artist1').empty();
+    $('#wiki1').empty();
+    $("#linkhere1").empty();
+    artistGetter();
 })
