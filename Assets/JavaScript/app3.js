@@ -391,7 +391,7 @@ youtubeVid1()
 
 
 var database = firebase.database();
-$("#loveit").on("click", function (event) {
+$("#loveit1").on("click", function (event) {
     event.preventDefault();
 
     street = $("#street").val().trim().toLowerCase();
@@ -412,7 +412,7 @@ $("#loveit").on("click", function (event) {
 
 
 
-$("#hateit").on("click", function () {
+$("#hateit1").on("click", function () {
     $('#title1').empty();
     $('#artist1').empty();
     $('#wiki1').empty();
