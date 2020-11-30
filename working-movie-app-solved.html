@@ -30,7 +30,21 @@
       <!-- Button triggers new movie to be added -->
       <input id="add-movie" type="submit" value="Add a Movie, Yo!">
     </form>
+  </div>
 
+  <div class="row info valign-wrapper" id="panel4"></div>
+
+  
+
+   
+    <div class="col s12" >
+        <div class="youtube iframe-container" id="utube4">
+            <iframe id="movievid" width="550" height="315" src="https://www.youtube.com/embed/Mj4JwAFGQq4 "
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+    </div> 
     <!-- Movies will Get Dumped Here -->
     <div id="movies-view"></div>
 
@@ -41,13 +55,27 @@
 
       // displayMovieInfo function re-renders the HTML to display the appropriate content
       function displayMovieInfo() {
-
         var movie = $(this).attr("data-name");
-        var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+
+var apiKey = "AIzaSyCRUz9YQNs31lhb7Gl0GERKZ9Quoa5Jewc";
+
+var queryURL1 = "https://www.googleapis.com/youtube/v3/search?key=" + apiKey +
+ "&part=snippet&q=" + movie + "&type=video"
+$.ajax({
+url: queryURL1,
+method: "GET"
+}).then(function (response) {
+// console.log(response);
+// console.log(response.items[0].id.videoId);
+var videoID = response.items[0].id.videoId;
+$('#movievid').attr('src', 'https://www.youtube.com/embed/' + videoID);
+    })
+
+        var queryURL2 = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
         // Creating an AJAX call for the specific movie button being clicked
         $.ajax({
-          url: queryURL,
+          url: queryURL2,
           method: "GET"
         }).then(function(response) {
 
@@ -92,9 +120,13 @@
 
           // Putting the entire movie above the previous movies
           $("#movies-view").prepend(movieDiv);
-        });
+          })
 
-      }
+
+    }
+   
+
+  ;
 
       // Function for displaying movie data
       function renderButtons() {
@@ -135,67 +167,28 @@
 
       // Adding a click event listener to all elements with a class of "movie-btn"
       $(document).on("click", ".movie-btn", displayMovieInfo,);
-      $(document).on("click", ".movie-btn", youtubeVid4,);
+      // $(document).on("click", ".movie-btn", ytvideo,);
       // Calling the renderButtons function to display the intial buttons
       renderButtons();
-      youtubeVid4()
+    
 
 
 
-function youtubeVid4() {
-gapi.load('auth2', function () {
-});
-
-var searchKey = movie;
-var apiKey = "AIzaSyB6eT2et-bDuQ2u7rfBBsWkmxjTP--QqXw";
-
-var queryURL = "https://www.googleapis.com/youtube/v3/search?key=" + apiKey +
-    "&part=snippet&q=" + searchKey + "&type=video"
-
-console.log(queryURL);
-var x = document.getElementById("#title4");
-console.log(x);
-
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function (response) {
-    // console.log(response);
-    // console.log(response.items[0].id.videoId);
-    var videoID = response.items[0].id.videoId;
-    $('#vid4').attr('src', 'https://www.youtube.com/embed/' + videoID);
-});
-
-}
 
 
-</script>
 
 
 
 
     </script>
-  </div>
 
-  <div class="row info valign-wrapper" id="panel2">
 
   
 
    
-    <div class="col s12" >
-        <div class="youtube iframe-container" id="utube2">
-            <iframe id="vid4" width="550" height="315" src="https://www.youtube.com/embed/Mj4JwAFGQq4 "
-                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-        </div>
-    </div>
-    </div> 
- 
-
-   
 
 
-</div>
+  </div>
 
 
 </body>

@@ -419,3 +419,4 @@ $("#hateit").on("click", function () {
     $("#linkhere1").empty();
     artistGetter1();
 })
+
