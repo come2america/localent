@@ -9,15 +9,6 @@ var assigntrack = '';
 var image = '';
 var ituneurl = ''
 
-var tags= [" A Song For Where You Are The Most" ,"A Song For The Road", "A Song For Your Destination", "A Song For Any Location"];
-setInterval(function(){ 
-
-
-$("#tagline").html("<h3>" + tags[Math.floor((Math.random() * 4))]+ "</h3>");
-console.log(tags[y])
-
-},6000)
-
 
 
 

@@ -45,7 +45,7 @@
 
 <body>
 
-    <h1 class="main">Location Entertainment</h1>
+    <h5 class="main">Location Entertainment</h5>
     
 
     <div class="container">
@@ -58,7 +58,7 @@
        
         <!-- Address inputs and button -->
         <div id="addressform" class="row">
-            <h5 style="color:white">Enter Your Address To Start</h5>
+            <h5 style="color:white">Enter Your Address And Click Below To Start</h5>
             <div class="input-field col s3">
                 <input placeholder="123 Main Street" id="street" type="text" class="validate">
                 <label class="active" for="street">Address</label>
@@ -77,17 +77,17 @@
             </div>
         </div> 
         <div class="center-align" id="displayDiv">
-            <p class="placeholder">510 EAST PELTASON DRIVE IRVINE, CA 92697</p>
+            <p class="placeholder">Your Address </p>
             <!-- <button onclick="window.location.href='./directions.html'">Continue</button> -->
 
 
         </div> 
         <div class="button center-align">
-            <button class="btn waves-effect waves-light" id="submit1" type="button" name="action"><i class="material-icons right">audiotrack</i>Next Song
+            <button class="btn waves-effect waves-light" id="submit1" type="button" name="action"><i class="material-icons right">audiotrack</i>Click to Start Song
             </button>
-            <button class="btn waves-effect waves-light" id="submit2" type="button" name="action"><i class="material-icons right">audiotrack</i> Next Tv Show
+            <button class="btn waves-effect waves-light" id="submit2" type="button" name="action"><i class="material-icons right">audiotrack</i> Click to Start Tv Show
             </button>
-            <button class="btn waves-effect waves-light" id="submit3" type="button" name="action"><i class="material-icons right">audiotrack</i> Next Podcasts
+            <button class="btn waves-effect waves-light" id="submit3" type="button" name="action"><i class="material-icons right">audiotrack</i> Click to Start Podcasts
             </button>
           
             
@@ -123,7 +123,8 @@
     
         <!-- </div>
         </div>  -->
-        <h5 style="color:black"> Your Entertainment </h5>  
+      
+        <h5 style="color:white"> Choose Your Entertainment </h5>  
         
         <div class="button center-align">
            <button id="flip2"class="btn waves-effect waves-light" id="tv" type="button" name="action"><i class="material-icons right">audiotrack</i>I
@@ -136,13 +137,17 @@
             <button id="flip3"class="btn waves-effect waves-light" id="Podcasts" type="button" name="action"><i class="material-icons right">audiotrack</i>I
               Podcasts
                  </button>
+
                  <button id="flip4"class="btn waves-effect waves-light" id="Games" type="button" name="action"><i class="material-icons right">audiotrack</i>I
                     Games
                        </button>
+                 <button id="flip5"class="btn waves-effect waves-light" id="Games" type="button" name="action"><i class="material-icons right">audiotrack</i>I
+                 Originals
+                       </button>
 
-                       <a href="working-movie-app-solved.html" id="flip4" class="btn waves-effect waves-light" id="Movies" type="button" name="action"><i class="material-icons right">audiotrack</i>I
+                       <!-- <a href="working-movie-app-solved.html" id="flip4" class="btn waves-effect waves-light" id="Movies" type="button" name="action"><i class="material-icons right">audiotrack</i>I
                       Movies
-                        </a>
+                        </a> -->
                         <a href="recentuser-solved.html" id="flip4" class="btn waves-effect waves-light" id="Movies" type="button" name="action"><i class="material-icons right">audiotrack</i>I
                             Comments
                             </a>
@@ -227,7 +232,36 @@
 
         </div> 
          
- 
+        <div class="row info valign-wrapper" id="panel5">
+
+            
+
+            <div class="col s12" >
+                <h5 class="song-info">Title: <span id="title2">Time 2</span></h5>
+                <h5>Artist: <span id="artist2">Ali Serunjogi </span></h5>
+
+                <!-- <a href="mylocationsong.com?at=1000lc66" target="_blank"><img src="http://www.niftybuttons.com/itunes/itunesbutton1.png" alt="iTunes Button (via NiftyButtons.com)"></a> -->
+
+                <!-- <a id="buylink2" style="display:inline-block;overflow:hidden;background:url(https://tools.applemusic.com/en-us/badge-lrg.svg?releaseDate=2001-04-02&kind=song&bubble=itunes) no-repeat;width:153px;height:40px;"></a>
+                <a id="amazonlink2"><img src="./Assets/Images/amazon.png" alt="Amazon Button"
+                        style=" width:153px;height:40px;"></a> -->
+            </div>
+            <div class="col s12" >
+                <div class="youtube iframe-container" id="utube2">
+                    <iframe id="vid2" width="550" height="315" src="https://www.youtube.com/embed/0350nCf74Bk "
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+<!--            
+         <button class="btn waves-effect waves-light" id="hateit2" type="button" name="action"><i class="material-icons right">audiotrack</i>I
+                Change it
+            </button>
+            <button class="btn waves-effect waves-light" id="loveit2" type="button" name="action"><i class="material-icons right">audiotrack</i>I
+                Save It To Address
+            </button> -->
+
+        </div> 
        
 
 
@@ -337,10 +371,6 @@
             <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
         </a>
 
-        <!-- Google+ -->
-        <a href="https://plus.google.com/share?url=https://mylocationsong.com/" target="_blank">
-            <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
-        </a>
 
         <!-- LinkedIn -->
         <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://mylocationsong.com/" target="_blank">
@@ -388,14 +418,8 @@
             target="_blank">
             <img src="https://simplesharebuttons.com/images/somacro/yummly.png" alt="Yummly" />
         </a>
-   <p> &copy; Yusuf Serunjogi 2018 </p>
-   <script type='text/javascript'>var _merchantSettings=_merchantSettings || [];(function(){var autolink=document.createElement('script');autolink.type='text/javascript';autolink.async=true; autolink.src= ('https:' == document.location.protocol) ? 'https://autolinkmaker.itunes.apple.com/js/itunes_autolinkmaker.js' : 'http://autolinkmaker.itunes.apple.com/js/itunes_autolinkmaker.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(autolink, s);})();</script>
-       <div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>  
+   <p> &copy; Yusuf Serunjogi 2020 </p>
+   
 </footer>
 </div> <!-- container div-->
 
@@ -479,6 +503,13 @@
                   });
                 });
                 </script>
+                <script> 
+                    $(document).ready(function(){
+                      $("#flip5").click(function(){
+                        $("#panel5").slideToggle("slow");
+                      });
+                    });
+                    </script>
 </body>
 
 </html>
