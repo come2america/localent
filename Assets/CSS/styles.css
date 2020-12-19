@@ -211,7 +211,9 @@ footer {
       background-color: #e5eecc;
       border: solid 1px #c3c3c3;
     } */
-    
+    #b, #a {
+      display: none
+    }
     #panel2 {
       padding: 50px;
       display: none;

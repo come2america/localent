@@ -361,10 +361,38 @@ jQuery('.btn.waves-effect').click(function(){
 
         
             </div>
+            <div class="col s12" id="b" >
+                <div class="youtube iframe-container" id="ad1">
+                                    <iframe id="vid1" width="550" height="315" src="https://www.youtube.com/embed/_8c9MN7d4d8"
+                                        frameborder="0" allow="accelerometer; autoplay=1; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                </div>
+                            </div>  
+                            <div class="col s12" id="a" >
 
-
+                            </div>
         </div>
+<script>
 
+setInterval(function() {
+  $("#a").hide();
+  setTimeout(function() {
+    $("#b").fadeIn('normal');
+  },99000);
+},129000);
+
+</script>
+<script>
+
+    setInterval(function() {
+      $("#b").hide();
+      setTimeout(function() {
+        $("#a").fadeIn('normal');
+      },99000);
+    },129000);
+    
+    </script>
+    
 
         <!-- Youtube  -->
  
